@@ -17,94 +17,96 @@
             if ($data = mysqli_fetch_array($result)) {
                 // var_dump($row);
         ?>
-                <input type="hidden" name="id_kategorial" value="<?php echo $data['id_kategorial'] ?>">
+        <input type="hidden" name="id_kategorial" value="<?php echo $data['id_kategorial'] ?>">
 
 
-                <div class="card-body">
+        <div class="card-body">
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Nama kategori</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="kategori" placeholder="Nama kategori" required value="<?= $data['kategori']; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih ketua kategori</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="ketua" id="" required>
-                                <option value="<?= $data['ketua']; ?>"><?= $data['ketua']; ?></option>
-                                <?php
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Nama kategori</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="kategori" placeholder="Nama kategori" required
+                        value="<?= $data['kategori']; ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Pilih ketua kategori</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="ketua" id="" required>
+                        <option value="<?= $data['ketua']; ?>"><?= $data['ketua']; ?></option>
+                        <?php
                                 // ambil data dari database
                                 $query = "select * from tb_umat where status_umat='Ada'";
                                 $hasil = mysqli_query($koneksi, $query);
                                 while ($row = mysqli_fetch_array($hasil)) {
                                 ?>
-                                    <option value="<?php echo $row['nama_umat'] ?>">
-                                        <?php echo $row['nik'] ?>
-                                        -
-                                        <?php echo $row['nama_umat'] ?>
-                                    </option>
-                                <?php
+                        <option value="<?php echo $row['nama_umat'] ?>">
+                            <?php echo $row['nik'] ?>
+                            -
+                            <?php echo $row['nama_umat'] ?>
+                        </option>
+                        <?php
                                 }
                                 ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Pilih wakil ketua kategori</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="wakil_ketua" id="" required>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Pilih wakil ketua kategori</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="wakil_ketua" id="" required>
 
-                                <?php
+                        <?php
                                 // ambil data dari database
                                 $query = "SELECT * FROM tb_kategorial where id_kategorial ='$id'";
                                 $hasil = mysqli_query($koneksi, $query);
                                 while ($data = mysqli_fetch_array($hasil)) {
                                 ?>
-                                    <option value="<?= $data['wakil_ketua']; ?>"><?= $data['wakil_ketua']; ?></option>
-                                <?php
+                        <option value="<?= $data['wakil_ketua']; ?>"><?= $data['wakil_ketua']; ?></option>
+                        <?php
                                 }
                                 ?>
-                                <?php
+                        <?php
                                 // ambil data dari database
                                 $query = "select * from tb_umat where status_umat='Ada'";
                                 $hasil = mysqli_query($koneksi, $query);
                                 while ($row = mysqli_fetch_array($hasil)) {
                                 ?>
-                                    <option value="<?php echo $row['nama_umat'] ?>">
-                                        <?php echo $row['nik'] ?>
-                                        -
-                                        <?php echo $row['nama_umat'] ?>
-                                    </option>
-                                <?php
+                        <option value="<?php echo $row['nama_umat'] ?>">
+                            <?php echo $row['nik'] ?>
+                            -
+                            <?php echo $row['nama_umat'] ?>
+                        </option>
+                        <?php
                                 }
                                 ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">jumlah KK</label>
-                        <div class="col-sm-6">
-                            <?php
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">jumlah KK</label>
+                <div class="col-sm-6">
+                    <?php
                             $query = "SELECT * FROM tb_kategorial where id_kategorial ='$id'";
                             $result = mysqli_query($koneksi, $query);
 
                             if ($data = mysqli_fetch_array($result)) {
                                 // var_dump($row);
                             ?>
-                                <input type="number" class="form-control" name="jumlah_kk" placeholder="jumlah KK" required value="<?= $data['jumlah_kk']; ?>">
-                            <?php }; ?>
-                        </div>
-                    </div>
+                    <input type="number" class="form-control" name="jumlah_kk" placeholder="jumlah KK" required
+                        value="<?= $data['jumlah_kk']; ?>">
+                    <?php }; ?>
+                </div>
+            </div>
             <?php
             }
         }
             ?>
-                </div>
-                <div class="card-footer">
-                    <input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
-                    <a href="?page=data-kategori" title="Kembali" class="btn btn-secondary">Batal</a>
-                </div>
+        </div>
+        <div class="card-footer">
+            <input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
+            <a href="?page=data-kategori" title="Kembali" class="btn btn-secondary">Batal</a>
+        </div>
     </form>
 </div>
 

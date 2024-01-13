@@ -1,7 +1,7 @@
 <div class="card card-info">
     <div class="card-header">
         <h3 class="card-title">
-            <i class="fa fa-table"></i> Data kategori
+            <i class="fa fa-table"></i> Data kategorial
         </h3>
     </div>
     <!-- /.card-header -->
@@ -32,19 +32,23 @@
                     // var_dump($data);
 
                 ?>
-                    <tr>
-                        <td><?= $no++; ?></td>
-                        <td><?= $data['kategori']; ?></td>
-                        <td><?= $data['ketua']; ?></td>
-                        <td><?= $data['wakil_ketua']; ?></td>
-                        <td><?= $data['jumlah_kk']; ?></td>
-                        <td>
-                            <a href="?page=edit-kategori&kode=<?php echo $data['id_kategorial']; ?>" title="Ubah" class="btn btn-success btn-sm">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a class="btn btn-danger" href="?page=delete-kategori&kode=<?php echo $data['id_kategorial']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td><?= $no++; ?></td>
+                    <td><?= $data['kategori']; ?></td>
+                    <td><?= $data['ketua']; ?></td>
+                    <td><?= $data['wakil_ketua']; ?></td>
+                    <td><?= $data['jumlah_kk']; ?></td>
+                    <td>
+                        <a href="?page=edit-kategori&kode=<?php echo $data['id_kategorial']; ?>" title="Ubah"
+                            class="btn btn-success btn-sm">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger"
+                            href="?page=delete-kategori&kode=<?php echo $data['id_kategorial']; ?>"
+                            onclick="return confirm('Apakah anda yakin hapus data ini ?')"><i
+                                class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
                 <?php }; ?>
             </tbody>
         </table>
