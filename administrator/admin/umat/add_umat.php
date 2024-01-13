@@ -5,13 +5,7 @@
 		</h3>
 	</div>
 	<div class="card-body">
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Apakah Anda Kepala Keluarga ?</label>
-			<div class="col-sm-6">
-				<button onclick="funKeluarga()" class="btn btn-primary">Ya</button>
-				<button onclick="funNonKeluarga()" class="btn btn-primary">Tidak</button>
-			</div>
-		</div>
+			<div class="col-sm-6"></div>
 		<form action="" method="post" enctype="multipart/form-data">
 			<div id="keluarga">
 				<div id="divKeluarga" style="display: none">
