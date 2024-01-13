@@ -1,7 +1,7 @@
 <div class="card card-info">
     <div class="card-header">
         <h3 class="card-title">
-            <i class="fas fa-table"> Data Pengerusan</i>
+            <i class="fas fa-table"> Data Pengurus</i>
         </h3>
     </div>
     <form action="" method="post">
