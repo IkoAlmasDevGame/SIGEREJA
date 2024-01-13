@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2024 at 06:47 AM
+-- Generation Time: Jan 13, 2024 at 07:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -250,7 +250,7 @@ CREATE TABLE `tb_pengguna` (
   `nama_pengguna` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `level` enum('Administrator','Kaur Pemerintah') NOT NULL
+  `level` enum('Administrator','Lingkungan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -259,7 +259,7 @@ CREATE TABLE `tb_pengguna` (
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `level`) VALUES
 (1, 'Ervanto Andreas', 'admin', 'admin', 'Administrator'),
-(3, 'Imas', 'admin2', 'admin2', 'Kaur Pemerintah');
+(3, 'Imas', 'admin2', 'admin2', 'Lingkungan');
 
 -- --------------------------------------------------------
 
