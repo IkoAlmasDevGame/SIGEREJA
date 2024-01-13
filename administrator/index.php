@@ -662,7 +662,7 @@ while ($data = $sql->fetch_assoc()) {
                     // Auto Halaman Home Pengguna atau menampilkan halaman dashboard
                     if ($data_level == "Administrator") {
                     include "home/admin.php";
-                    } elseif ($data_level == "Kaur Pemerintah") {
+                    } elseif ($data_level == "Lingkungan") {
                     include "home/kaur.php";
                     }
                     }
