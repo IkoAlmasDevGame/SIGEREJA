@@ -29,8 +29,7 @@
                                             id_kub = '".$_POST['id_kub']."',
                                             id_lingkungan = '".$_POST['id_lingkungan']."'";
                                             $query_add = mysqli_query($koneksi, $sql_ubah);
-                                            $query_ubah = mysqli_query($koneksi, "UPDATE tb_kub SET id_lingkungan ='$_POST[id_lingkungan]', ketua='$_POST[ketua]'
-					    WHERE id_kub='$_POST[id_kub]'");
+                                            $query_ubah = mysqli_query($koneksi, "UPDATE tb_kub SET id_lingkungan ='$_POST[id_lingkungan]', ketua='$_POST[ketua]' WHERE id_kub='$_POST[id_kub]'");
                                             mysqli_close($koneksi);
                                         
                                     if ($query_add && $query_ubah) {
@@ -107,11 +106,11 @@
 
                                     <tr>
                                         <div class="form-group row">
-                                            <td>Ketua</td>
+                                            <td>Nama Umat</td>
                                             <td>
                                                 <div class="col-sm-8">
                                                     <select name="ketua" id="ketua" class="form-control">
-                                                        <option value="" disabled selected>- Pilih Ketua -</option>
+                                                        <option value="" disabled selected>- Pilih Nama Umat -</option>
                                                         <?php
                                         // ambil data dari database
                                         $query = "select * from tb_umat where status_umat='Ada'";
@@ -127,60 +126,6 @@
                                                         <?php
                                         }
                                         ?>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </div>
-                                    </tr>
-
-                                    <tr>
-                                        <div class="form-group row">
-                                            <td>Sekretaris</td>
-                                            <td>
-                                                <div class="col-sm-8">
-                                                    <select name="sekretaris" id="sekretaris" class="form-control">
-                                                        <option value="" disabled selected>- Pilih Sekretaris -</option>
-                                                        <?php
-                                                // ambil data dari database
-                                                $query = "select * from tb_umat where status_umat='Ada'";
-                                                $hasil = mysqli_query($koneksi, $query);
-                                                while ($row = mysqli_fetch_array($hasil)) {
-                                                ?>
-                                                        <option value="<?php echo $row['id_umat'] ?>">
-                                                            <?php echo $row['nik'] ?>
-                                                            -
-                                                            <?php echo $row['nama_umat'] ?>
-                                                        </option>
-                                                        <?php
-                                                }
-                                                ?>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </div>
-                                    </tr>
-
-                                    <tr>
-                                        <div class="form-group row">
-                                            <td>Bendahara</td>
-                                            <td>
-                                                <div class="col-sm-8">
-                                                    <select name="bendahara" id="bendahara" class="form-control">
-                                                        <option value="" disabled selected>- Pilih Bendahara -</option>
-                                                        <?php
-                                                // ambil data dari database
-                                                $query = "select * from tb_umat where status_umat='Ada'";
-                                                $hasil = mysqli_query($koneksi, $query);
-                                                while ($row = mysqli_fetch_array($hasil)) {
-                                                ?>
-                                                        <option value="<?php echo $row['id_umat'] ?>">
-                                                            <?php echo $row['nik'] ?>
-                                                            -
-                                                            <?php echo $row['nama_umat'] ?>
-                                                        </option>
-                                                        <?php
-                                                }
-                                                ?>
                                                     </select>
                                                 </div>
                                             </td>
@@ -205,11 +150,8 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Lingkungan</th>
+                    <th>Nama Kub</th>
                     <th>Nama Umat</th>
-                    <th>Sekretaris</th>
-                    <th>Bendahara</th>
-                    <th>Kub</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -218,8 +160,6 @@
                     $no = 1;
 			        $sql = $koneksi->query("SELECT tb_pindah.*, tb_lingkungan.*, tb_umat.*,  tb_kub.* from tb_pindah inner join tb_lingkungan on tb_pindah.id_lingkungan = tb_lingkungan.id_lingkungan inner join tb_kub on tb_pindah.id_kub = tb_kub.id_kub inner join tb_umat on tb_pindah.ketua = tb_umat.id_umat");
                     foreach ($sql as $data) {
-                        $sek = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * from tb_umat where id_umat='$data[sekretaris]'"));
-                        $ben = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * from tb_umat where id_umat='$data[bendahara]'"));
                     ?>
                 <tr>
                     <td>
@@ -229,23 +169,10 @@
                         <?php echo $data['nama_lingkungan']; ?>
                     </td>
                     <td>
-                        <?php echo $data['nama_umat']; ?>
-                    </td>
-                    <td>
-                        <?php echo $sek['nama_umat']; ?>
-                    </td>
-                    <td>
-                        <?php echo $ben['nama_umat']; ?>
-                    </td>
-                    <td>
                         <?php echo $data['nama_kub']; ?>
                     </td>
                     <td>
-                        <a href="?page=del-lingkungan&kode=<?php echo $data['id_lingkungan']; ?>"
-                            onclick="return confirm('Apakah anda yakin hapus data ini ?')" title="Hapus"
-                            class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash"></i>
-                            </>
+                        <?php echo $data['nama_umat']; ?>
                     </td>
                 </tr>
 
