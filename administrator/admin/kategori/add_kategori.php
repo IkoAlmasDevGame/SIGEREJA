@@ -80,6 +80,28 @@
                 </div>
             </div>
             <div class="form-group row">
+				<label class="col-sm-2 col-form-label">Bendahara</label>
+				<div class="col-sm-4">
+				<select name="bendahara" id="bendahara" class="form-control select2bs4" required>
+							<option value="" disabled selected>Pilih Bendahara</option>
+						<?php
+                        // ambil data dari database
+                        $query = "select * from tb_umat where status_umat='Ada'";
+                        $hasil = mysqli_query($koneksi, $query);
+                        while ($row = mysqli_fetch_array($hasil)) {
+                        ?>
+						<option value="<?php echo $row['id_umat'] ?>">
+							<?php echo $row['nik'] ?>
+							-
+							<?php echo $row['nama_umat'] ?>
+						</option>
+						<?php
+                        }
+                        ?>
+					</select>
+				</div>
+			</div>
+            <div class="form-group row">
                 <label class="col-sm-2 col-form-label">jumlah KK</label>
                 <div class="col-sm-6">
                     <input type="number" class="form-control" name="jumlah_kk" placeholder="jumlah KK" required>

@@ -18,7 +18,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">No Kartu Keluarga</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="kepalaKeluarga2" id="no_kk" name="no_kk"
+                            <input type="text" class="form-control" id="kepalaKeluarga" id="no_kk" name="no_kk"
                                 placeholder="No Kartu Keluarga">
                         </div>
                     </div>
